@@ -117,7 +117,6 @@ const REGIONS: RegionStat[] = [
   { region: "Africa", percentage: 5, streams: 142_413, color: "#f59e0b" },
 ];
 
-// ─── Fetch from Last.fm ───────────────────────────────────────────────────────
 
 async function fetchLastFmTopTracks(): Promise<LastFmTrack[]> {
   const url = `${LASTFM_BASE}/?method=chart.gettoptracks&api_key=${LASTFM_API_KEY}&format=json&limit=10`;
@@ -127,7 +126,6 @@ async function fetchLastFmTopTracks(): Promise<LastFmTrack[]> {
   return json?.tracks?.track ?? [];
 }
 
-// ─── Transform Last.fm → internal Track type ─────────────────────────────────
 
 function transformTrack(
   lfmTrack: LastFmTrack | (typeof FALLBACK_TRACKS)[0],
@@ -161,7 +159,6 @@ function transformTrack(
 }
 
 function buildArtists(tracks: Track[]): Artist[] {
-  // Dedupe artists, take top ones
   const seen = new Set<string>();
   const artists: Artist[] = [];
 
@@ -196,7 +193,6 @@ function buildGenres(_tracks: Track[]): GenreStat[] {
   }));
 }
 
-// ─── Public API ───────────────────────────────────────────────────────────────
 
 export interface SeedData {
   tracks: Track[];
