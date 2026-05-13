@@ -11,7 +11,7 @@
 import { ref, computed, watch, onMounted, onUnmounted, shallowRef } from 'vue'
 import * as echarts from 'echarts/core'
 import type { ECharts } from 'echarts/core'
-import { baseTooltip, SPOTIFY_COLORS } from './chartTheme'
+import { baseTooltip } from './chartTheme'
 
 interface RadarPoint {
   axis: string

@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, onMounted, onUnmounted, shallowRef } from 'vue'
+import { ref, computed, onMounted, onUnmounted, shallowRef } from 'vue'
 import * as echarts from 'echarts/core'
 import type { ECharts } from 'echarts/core'
 import { baseTooltip } from './chartTheme'
@@ -34,8 +34,6 @@ const HOURS = Array.from({ length: 24 }, (_, i) =>
   `${String(i).padStart(2, '0')}:00`
 )
 
-// Generate realistic heatmap data
-// Music streaming peaks: late evening (8pm-midnight), morning commute (7-9am)
 function generateHeatData(): number[][] {
   return DAYS.map((_, dayIdx) =>
     HOURS.map((_, hour) => {

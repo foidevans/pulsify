@@ -188,7 +188,7 @@ function buildArtists(tracks: Track[]): Artist[] {
   return artists;
 }
 
-function buildGenres(tracks: Track[]): GenreStat[] {
+function buildGenres(_tracks: Track[]): GenreStat[] {
   return GENRES.slice(0, 5).map((genre, i) => ({
     genre,
     streams: Math.floor(Math.random() * 4000 + 1500),
